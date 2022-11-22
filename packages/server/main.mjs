@@ -1,9 +1,9 @@
 import express from 'express';
 import {createServer} from "http";
 import cors from 'cors';
-import Logger from "./utils/logger.mjs";
 import {ApiError, ResponseEnvelope} from "@potentii/rest-envelopes";
 import ApiController from "./controllers/api-controller.mjs";
+import {Logger} from "@local-app-template/commons";
 
 const app = express();
 const httpServer = createServer(app);

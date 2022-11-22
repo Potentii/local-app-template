@@ -13,7 +13,7 @@ const { app, BrowserWindow } = electron;
 // TODO fix this using dotenv
 if(is_dev){
 	// process.env.PAGE_ADDRESS = 'http://localhost:1234';
-	process.env.PAGE_ADDRESS = '../../editor/parcel-watch/bundle/index.html';
+	process.env.PAGE_ADDRESS = '../../../../view/out/parcel-watch/bundle/index.html';
 } else{
 	process.env.PAGE_ADDRESS = './renderer/view/index.html';
 }

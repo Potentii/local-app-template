@@ -3,7 +3,7 @@ import {IpcApiRoute} from "@potentii/electron-ipc-api";
 
 export default class IpcStore{
 
-	async static setup(){
+	static async setup(){
 
 		IpcApiRoute.on(`store:get`, data => Store.get(data.store));
 

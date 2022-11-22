@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="view-parcel-serve" type="js.build_tools.npm">
+  <configuration default="false" name="view-parcel-serve" type="js.build_tools.npm" folderName="view">
     <package-json value="$PROJECT_DIR$/packages/view/package.json" />
     <command value="run" />
     <scripts>
