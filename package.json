@@ -1,0 +1,26 @@
+{
+	"name": "@local-app-template/main",
+	"version": "1.0.0",
+	"description": "",
+	"private": true,
+	"scripts": {
+		"prepares": "yarn install && lerna bootstrap",
+		"bootstrap": "lerna bootstrap",
+		"test": "lerna run --stream --parallel test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Potentii/local-app-template.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Potentii/local-app-template/issues"
+	},
+	"homepage": "https://github.com/Potentii/local-app-template",
+	"workspaces": {
+		"packages": ["packages/*"]
+	},
+	"type": "module",
+	"devDependencies": {
+		"lerna": "4.0.0"
+	}
+}

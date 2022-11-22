@@ -1,0 +1,11 @@
+{
+	"name": "@local-app-template/commons",
+	"version": "1.0.0",
+	"description": "Common utilities",
+	"main": "main.mjs",
+	"type": "module",
+	"dependencies": {
+		"@potentii/type-utils": "1.0.1",
+		"@potentii/logger-js": "1.0.4"
+	}
+}

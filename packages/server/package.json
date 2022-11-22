@@ -1,0 +1,17 @@
+{
+	"name": "@local-app-template/server",
+	"version": "1.0.0",
+	"description": "The server backend module",
+	"type": "module",
+	"scripts": {
+		"start": "node ./main.mjs"
+	},
+	"dependencies": {
+		"@local-app-template/commons": "1.0.0",
+		"@potentii/rest-envelopes": "1.0.2",
+		"@potentii/type-utils": "1.0.1",
+		"cors": "2.8.5",
+		"express": "4.17.1",
+		"uuid": "9.0.0"
+	}
+}

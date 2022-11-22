@@ -1,0 +1,27 @@
+appId: com.local-app-template
+productName: local-app-template
+directories:
+   app: .
+   buildResources: ./out/parcel-build/bundle
+   output: ./out/electron-builder-dist
+win:
+   target:
+      - target: nsis
+        arch:
+           - x64
+   #icon: ../view/resources/icons/icon.ico # TODO adicionar icons
+   signingHashAlgorithms:
+      - sha1
+      - sha256
+   requestedExecutionLevel: asInvoker
+nsis:
+   oneClick: true
+   runAfterFinish: false
+files:
+   - package.json
+   - .env
+   - from: ./out/parcel-build/bundle
+     to: ./
+   - from: ../view/out/parcel-build/bundle
+     to: ./renderer
+asar: true

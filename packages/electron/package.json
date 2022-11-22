@@ -1,0 +1,76 @@
+{
+	"name": "@local-app-template/electron",
+	"version": "1.0.0",
+	"description": "The electron wrapper",
+
+	"scripts": {
+		"parcel-build": "rimraf \"./out/parcel-build\" && parcel build ./ --target electronDev --no-autoinstall --dist-dir \"./out/parcel-build/bundle\" --no-cache",
+		"parcel-preload-build": "rimraf \"./out/parcel-preload-build\" && parcel build ./ --target electronPreloadDev --no-autoinstall --dist-dir \"./out/parcel-preload-build/bundle\" --no-cache",
+		"electron-start": "yarn run parcel-preload-build && yarn run parcel-build && electron \"./out/parcel-build/bundle/main.js\"",
+		"electron-builder-build": "yarn run parcel-preload-build && yarn run parcel-build && rimraf \"./out/electron-builder-dist\" && electron-builder",
+		"util-extract-asar": "rimraf \"./out/asar-unpacked\" && npx asar extract ./out/electron-builder-dist/win-unpacked/resources/app.asar ./out/asar-unpacked"
+	},
+
+	"electronDev": "./out/parcel-build/bundle/main.js",
+	"electronPreloadDev": "./out/parcel-preload-build/bundle/preload.js",
+	"targets": {
+		"electronDev": {
+			"context": "electron-main",
+			"isLibrary": false,
+			"optimize": false,
+			"outputFormat": "commonjs",
+			"publicUrl": "/",
+			"scopeHoist": true,
+			"source": "./main.mjs",
+			"sourceMap": true,
+			"includeNodeModules": {
+				"@potentii/type-utils": true
+			}
+		},
+		"electronPreloadDev": {
+			"context": "electron-main",
+			"isLibrary": false,
+			"optimize": false,
+			"outputFormat": "commonjs",
+			"publicUrl": "/",
+			"scopeHoist": true,
+			"source": "./preload/preload.mjs",
+			"sourceMap": true,
+			"includeNodeModules": {
+				"@potentii/type-utils": true
+			}
+		}
+	},
+
+	"dependencies": {
+		"@local-app-template/commons": "1.0.0",
+		"@potentii/electron-ipc-api": "1.0.0",
+		"@babel/runtime": "7.14.0",
+		"@potentii/app-data": "1.0.1",
+		"@potentii/type-utils": "1.0.1",
+		"dotenv": "10.0.0",
+		"electron-context-menu": "3.1.0",
+		"electron-debug": "3.2.0",
+		"electron-is-dev": "2.0.0",
+		"electron-store": "8.0.0",
+		"electron-util": "0.16.0",
+		"uuid": "9.0.0"
+	},
+	"devDependencies": {
+		"@babel/core": "7.14.3",
+		"@babel/node": "7.14.2",
+		"@babel/plugin-proposal-nullish-coalescing-operator": "7.14.2",
+		"@babel/plugin-proposal-object-rest-spread": "7.14.4",
+		"@babel/plugin-proposal-optional-chaining": "7.14.2",
+		"@babel/plugin-syntax-import-meta": "7.10.4",
+		"@babel/plugin-transform-regenerator": "7.13.15",
+		"@babel/plugin-transform-runtime": "7.14.3",
+		"@babel/preset-env": "7.14.4",
+		"babel-jest": "27.0.2",
+		"electron": "13.1.1",
+		"electron-builder": "22.11.7",
+		"jest": "27.0.4",
+		"parcel": "2.4.1",
+		"rimraf": "3.0.2"
+	}
+}
